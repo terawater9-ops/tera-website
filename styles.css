@@ -169,6 +169,10 @@ legend { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1
 .next .btn { cursor: pointer; font: inherit; font-weight: 600; }
 .thanks { padding: 96px 0; border-bottom: 0; }
 
+.mail-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 1.1rem; font-weight: 600; }
+.copy { font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.6); border-radius: 999px; padding: 4px 12px; }
+.copy:hover { background: rgba(255,255,255,0.12); }
+
 /* Footer */
 .site-footer { padding: 28px 0 40px; font-size: 0.9rem; color: var(--muted); }
 .site-footer p { margin: 4px 0; }
