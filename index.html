@@ -133,16 +133,17 @@
         <div class="contact-grid">
           <div>
             <h2 id="contact-title">Get your free water diagnosis</h2>
-            <p>Tell us about your farm and what you're seeing. Photos or a lab report help, but they're optional. We reply within one business day.</p>
+            <p>Tell us about your farm and what you're seeing. We reply by email within one business day, and you can send photos or a lab report in your reply.</p>
             <p>Prefer email or phone?</p>
             <div data-contact></div>
           </div>
 
-          <form class="form" action="https://formsubmit.co/info@terawaters.com" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_subject" value="New farm water diagnosis request">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://terawaters.com/thanks.html">
-            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <form class="form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="WEB3FORMS_KEY">
+            <input type="hidden" name="subject" value="New farm water diagnosis request">
+            <input type="hidden" name="from_name" value="terawaters.com">
+            <input type="hidden" name="redirect" value="https://terawaters.com/thanks.html">
+            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
             <div class="field-row">
               <label>Your name<input name="name" required autocomplete="name"></label>
@@ -177,7 +178,6 @@
               <label><span>Acres <span class="opt">(approx.)</span></span><input name="acres" inputmode="numeric"></label>
             </div>
             <label>What are you seeing?<textarea name="problem" id="problem" rows="5" required placeholder="e.g. emitters clogging every few weeks, orange stains, salt crust on the soil"></textarea></label>
-            <label><span>Photos or lab report <span class="opt">(optional)</span></span><input type="file" name="attachment" accept="image/*,.pdf"></label>
             <button class="btn" type="submit">Send my request</button>
             <p class="fine">We use your details only to reply to your request.</p>
           </form>
