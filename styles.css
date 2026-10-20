@@ -61,6 +61,15 @@ section { padding: 72px 0; border-bottom: 1px solid var(--line); }
 .hero .wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
 .eyebrow { color: var(--crop); font-weight: 600; font-size: 0.92rem; margin: 0 0 12px; text-transform: uppercase; letter-spacing: 0.06em; }
 .lede { font-size: 1.15rem; max-width: 56ch; margin: 0; }
+.solves { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 8px; counter-reset: solve; }
+.solves li {
+  counter-increment: solve; background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 14px 6px 8px; font-size: 0.92rem; font-weight: 500;
+}
+.solves li::before {
+  content: counter(solve); display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 8px;
+  border-radius: 50%; background: var(--water); color: #fff; font-size: 0.78rem; font-weight: 700;
+}
 
 .report {
   margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
