@@ -2,7 +2,7 @@
 window.SITE = {
   email: "info@terawaters.com",
   phone: "855-903-0898",
-  address: "" // business mailing address, once confirmed
+  address: "1209 Mountain Road Place NE, Albuquerque, NM 87110"
 };
 
 document.addEventListener("DOMContentLoaded", function () {
