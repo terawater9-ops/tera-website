@@ -118,12 +118,64 @@ details p { margin: 10px 0 0; color: var(--muted); }
 .contact .btn:hover { background: #e6f0f4; }
 .contact a:not(.btn) { color: #fff; }
 
+.flag.mid { background: #f6ebc8; color: #7a5a08; }
+
+/* Contact form */
+.contact-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: start; }
+.form {
+  background: var(--card); color: var(--soil); border-radius: var(--radius); padding: 26px;
+  display: grid; gap: 14px;
+}
+.form.light { border: 1px solid var(--line); }
+.form label { display: grid; gap: 6px; font-weight: 600; font-size: 0.95rem; }
+.form .opt { font-weight: 400; color: var(--muted); }
+.form input, .form select, .form textarea {
+  font: inherit; font-weight: 400; color: var(--soil); background: #fff;
+  border: 1px solid #cbbfab; border-radius: 10px; padding: 11px 12px; width: 100%;
+}
+.form input[type="file"] { padding: 9px; background: var(--sand); }
+.form input:focus, .form select:focus, .form textarea:focus { outline: 3px solid rgba(30, 91, 116, 0.25); border-color: var(--water); }
+.form .btn { justify-self: start; cursor: pointer; font: inherit; font-weight: 600; }
+.contact .form .btn { background: var(--water); color: #fff; border-color: var(--water); }
+.contact .form .btn:hover { background: var(--water-dark); }
+.form .fine, .contact .form .fine { color: var(--muted); font-size: 0.85rem; margin: 0; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 14px; }
+legend { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 4px; padding: 0; }
+.unit-in { display: flex; gap: 0; }
+.unit-in input { border-radius: 10px 0 0 10px; min-width: 0; }
+.unit-in select, .unit-in .u {
+  width: auto; flex: 0 0 auto; border-radius: 0 10px 10px 0; border-left: 0; background: var(--sand);
+  font-size: 0.88rem; padding: 11px 10px; border: 1px solid #cbbfab; border-left: 0; font-weight: 500; color: var(--muted);
+}
+
+/* Water test tool */
+.tool-intro { padding: 56px 0 28px; border-bottom: 0; }
+.tool { padding-top: 12px; }
+.tool-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: start; }
+.results { position: sticky; top: 20px; }
+.results-empty { background: var(--card); border: 1px dashed #cbbfab; border-radius: var(--radius); padding: 24px; }
+.results-empty h2 { font-size: 1.35rem; }
+.results-empty p { color: var(--muted); }
+.res-list { display: grid; }
+.res { padding: 14px 0; border-top: 1px solid var(--line); }
+.res-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.res-top .flag { flex: 0 0 96px; }
+.res-val { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.res p { margin: 6px 0 0; font-size: 0.97rem; }
+.next { margin-top: 18px; background: #e8efe0; border-radius: var(--radius); padding: 20px; }
+.next p { margin: 0 0 12px; }
+.next .btn { cursor: pointer; font: inherit; font-weight: 600; }
+.thanks { padding: 96px 0; border-bottom: 0; }
+
 /* Footer */
 .site-footer { padding: 28px 0 40px; font-size: 0.9rem; color: var(--muted); }
 .site-footer p { margin: 4px 0; }
 
 @media (max-width: 900px) {
-  .hero .wrap, .two { grid-template-columns: 1fr; gap: 36px; }
+  .hero .wrap, .two, .contact-grid, .tool-grid { grid-template-columns: 1fr; gap: 36px; }
+  .results { position: static; }
   .cards { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
 }
@@ -133,4 +185,6 @@ details p { margin: 10px 0 0; color: var(--muted); }
   .cards, .steps { grid-template-columns: 1fr; }
   .nav { gap: 14px; }
   .row { grid-template-columns: 1fr auto 74px; gap: 8px; }
+  .field-row { grid-template-columns: 1fr; }
+  .form { padding: 18px; }
 }

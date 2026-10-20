@@ -19,6 +19,7 @@
         <a href="#problems">Problems we solve</a>
         <a href="#how">How it works</a>
         <a href="#eqip">Cost share</a>
+        <a href="water-test.html">Read your water test</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -40,20 +41,20 @@
           </ol>
           <div class="actions">
             <a class="btn" href="#contact">Get a free diagnosis</a>
-            <a class="btn secondary" href="#how">How it works</a>
+            <a class="btn secondary" href="water-test.html">Explain my water test</a>
           </div>
         </div>
 
-        <figure class="report" aria-label="Example irrigation water report with three values flagged as high: iron, manganese and bicarbonate.">
+        <figure class="report" aria-label="Example irrigation water report with iron flagged as high and salinity, manganese and bicarbonate as moderate.">
           <div class="report-head">
             <span>Irrigation water report</span>
             <span class="tag">Example</span>
           </div>
           <dl class="report-rows">
-            <div class="row"><dt>Salinity (EC)</dt><dd>1.4 dS/m</dd><dd class="flag ok">Moderate</dd></div>
-            <div class="row"><dt>Iron</dt><dd>0.9 mg/L</dd><dd class="flag high">High</dd></div>
-            <div class="row"><dt>Manganese</dt><dd>0.4 mg/L</dd><dd class="flag high">High</dd></div>
-            <div class="row"><dt>Bicarbonate</dt><dd>3.1 meq/L</dd><dd class="flag high">High</dd></div>
+            <div class="row"><dt>Salinity (EC)</dt><dd>1.4 dS/m</dd><dd class="flag mid">Moderate</dd></div>
+            <div class="row"><dt>Iron</dt><dd>1.8 mg/L</dd><dd class="flag high">High</dd></div>
+            <div class="row"><dt>Manganese</dt><dd>0.4 mg/L</dd><dd class="flag mid">Moderate</dd></div>
+            <div class="row"><dt>Bicarbonate</dt><dd>3.1 meq/L</dd><dd class="flag mid">Moderate</dd></div>
             <div class="row"><dt>Sodium (SAR)</dt><dd>2.8</dd><dd class="flag ok">OK</dd></div>
           </dl>
           <figcaption><strong>What it means:</strong> iron and scale are plugging the drip emitters. Filtration plus a treatment step, not a new system.</figcaption>
@@ -129,9 +130,58 @@
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="wrap">
-        <h2 id="contact-title">Get your free water diagnosis</h2>
-        <p>Email us your location, water source (well, canal or reuse), crop, irrigation type and what you're seeing. Photos help. We reply within one business day.</p>
-        <div data-contact></div>
+        <div class="contact-grid">
+          <div>
+            <h2 id="contact-title">Get your free water diagnosis</h2>
+            <p>Tell us about your farm and what you're seeing. Photos or a lab report help, but they're optional. We reply within one business day.</p>
+            <p>Prefer email or phone?</p>
+            <div data-contact></div>
+          </div>
+
+          <form class="form" action="https://formsubmit.co/info@terawaters.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="New farm water diagnosis request">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://terawaters.com/thanks.html">
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="field-row">
+              <label>Your name<input name="name" required autocomplete="name"></label>
+              <label>Email<input type="email" name="email" required autocomplete="email"></label>
+            </div>
+            <div class="field-row">
+              <label><span>Phone <span class="opt">(optional)</span></span><input type="tel" name="phone" autocomplete="tel"></label>
+              <label>Farm location<input name="location" required placeholder="County, state"></label>
+            </div>
+            <div class="field-row">
+              <label>Water source
+                <select name="water_source" required>
+                  <option value="">Choose one</option>
+                  <option>Well</option>
+                  <option>Canal or irrigation district</option>
+                  <option>Tailwater or reuse</option>
+                  <option>More than one</option>
+                </select>
+              </label>
+              <label>Irrigation type
+                <select name="irrigation_type" required>
+                  <option value="">Choose one</option>
+                  <option>Drip or micro</option>
+                  <option>Center pivot or sprinkler</option>
+                  <option>Flood or furrow</option>
+                  <option>Other</option>
+                </select>
+              </label>
+            </div>
+            <div class="field-row">
+              <label>Crop<input name="crop" placeholder="e.g. pecans, chile, alfalfa"></label>
+              <label><span>Acres <span class="opt">(approx.)</span></span><input name="acres" inputmode="numeric"></label>
+            </div>
+            <label>What are you seeing?<textarea name="problem" id="problem" rows="5" required placeholder="e.g. emitters clogging every few weeks, orange stains, salt crust on the soil"></textarea></label>
+            <label><span>Photos or lab report <span class="opt">(optional)</span></span><input type="file" name="attachment" accept="image/*,.pdf"></label>
+            <button class="btn" type="submit">Send my request</button>
+            <p class="fine">We use your details only to reply to your request.</p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -142,5 +192,17 @@
       <p>Farm irrigation water diagnosis and solutions.</p>
     </div>
   </footer>
+  <script>
+    // Prefill the request with results passed from the water test page.
+    (function () {
+      var saved = null;
+      try { saved = sessionStorage.getItem("teraWaterResults"); sessionStorage.removeItem("teraWaterResults"); } catch (e) {}
+      var box = document.getElementById("problem");
+      if (saved && box && !box.value) {
+        box.value = "My water test results:\n" + saved + "\n\nWhat I'm seeing: ";
+        if (location.hash !== "#contact") { location.hash = "contact"; }
+      }
+    })();
+  </script>
 </body>
 </html>

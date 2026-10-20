@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Read Your Irrigation Water Test | Tera Water Solutions</title>
+  <meta name="description" content="Enter the numbers from your irrigation water lab report and get a plain-English explanation of salinity, sodium, iron, manganese and drip clogging risk. Free.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Tera Water Solutions<small>Farm water diagnosis</small></a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html#problems">Problems we solve</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#eqip">Cost share</a>
+        <a href="water-test.html" aria-current="page">Read your water test</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="tool-intro" aria-labelledby="tool-title">
+      <div class="wrap">
+        <p class="eyebrow">Free tool</p>
+        <h1 id="tool-title">What does your water test mean?</h1>
+        <p class="lede">Type in the numbers from your irrigation water lab report. You'll see right away which values could hurt your crop or clog your system, explained in plain English. Fill in only what your report shows.</p>
+      </div>
+    </section>
+
+    <section class="tool" aria-label="Water test calculator">
+      <div class="wrap tool-grid">
+        <form id="wt" class="form light" novalidate>
+          <label>How do you irrigate?
+            <select id="irr">
+              <option value="drip">Drip or micro</option>
+              <option value="sprinkler">Center pivot or sprinkler</option>
+              <option value="surface">Flood or furrow</option>
+            </select>
+          </label>
+
+          <fieldset>
+            <legend>Salinity and sodium</legend>
+            <div class="field-row">
+              <label>Salinity (EC)
+                <span class="unit-in"><input id="ec" inputmode="decimal"><select id="ecu" aria-label="EC unit"><option value="ds">dS/m</option><option value="us">µS/cm</option></select></span>
+              </label>
+              <label>Total dissolved solids (TDS)
+                <span class="unit-in"><input id="tds" inputmode="decimal"><span class="u">mg/L</span></span>
+              </label>
+            </div>
+            <div class="field-row">
+              <label>Sodium adsorption ratio (SAR)
+                <span class="unit-in"><input id="sar" inputmode="decimal"><span class="u">ratio</span></span>
+              </label>
+              <label>pH
+                <span class="unit-in"><input id="ph" inputmode="decimal"><span class="u">pH</span></span>
+              </label>
+            </div>
+            <div class="field-row">
+              <label>Chloride
+                <span class="unit-in"><input id="cl" inputmode="decimal"><select id="clu" aria-label="Chloride unit"><option value="mg">mg/L</option><option value="meq">meq/L</option></select></span>
+              </label>
+              <label>Bicarbonate
+                <span class="unit-in"><input id="hco3" inputmode="decimal"><select id="hco3u" aria-label="Bicarbonate unit"><option value="mg">mg/L</option><option value="meq">meq/L</option></select></span>
+              </label>
+            </div>
+            <div class="field-row">
+              <label>Boron
+                <span class="unit-in"><input id="b" inputmode="decimal"><span class="u">mg/L</span></span>
+              </label>
+              <span></span>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Clogging</legend>
+            <div class="field-row">
+              <label>Iron (Fe)
+                <span class="unit-in"><input id="fe" inputmode="decimal"><span class="u">mg/L</span></span>
+              </label>
+              <label>Manganese (Mn)
+                <span class="unit-in"><input id="mn" inputmode="decimal"><span class="u">mg/L</span></span>
+              </label>
+            </div>
+            <div class="field-row">
+              <label>Hydrogen sulfide (H₂S)
+                <span class="unit-in"><input id="h2s" inputmode="decimal"><span class="u">mg/L</span></span>
+              </label>
+              <label>Suspended solids (TSS)
+                <span class="unit-in"><input id="tss" inputmode="decimal"><span class="u">mg/L</span></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <button class="btn" type="submit">Explain my results</button>
+            <button class="btn secondary" type="reset">Clear</button>
+          </div>
+          <p class="fine">mg/L is the same as ppm. EC in mmhos/cm is the same as dS/m.</p>
+        </form>
+
+        <div id="out" class="results" aria-live="polite">
+          <div class="results-empty">
+            <h2>Your results will appear here</h2>
+            <p>Most irrigation water reports list EC, pH, SAR, chloride, bicarbonate and boron. If your system clogs, ask the lab to add iron, manganese and suspended solids.</p>
+            <p>Don't have a report yet? <a href="index.html#contact">Ask us which test to order.</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="note-title">
+      <div class="wrap">
+        <h2 id="note-title">About this tool</h2>
+        <p class="intro">The ratings follow widely used irrigation water guidelines from the FAO (Ayers and Westcot) and US university extension services for drip clogging. They're general guidance: crops differ in how much salt and sodium they tolerate, and soil matters too. For a recommendation for your farm, send us your results. It's free.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>TeraWaterSolutions LLC<span data-address></span></p>
+      <p>Farm irrigation water diagnosis and solutions.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var form = document.getElementById("wt");
+    var out = document.getElementById("out");
+    var emptyHTML = out.innerHTML;
+
+    function num(id) {
+      var v = document.getElementById(id).value.replace(",", ".").trim();
+      if (v === "") return null;
+      var n = parseFloat(v);
+      return isNaN(n) || n < 0 ? null : n;
+    }
+    function unit(id) { return document.getElementById(id).value; }
+    function fmt(n) { return (Math.round(n * 100) / 100).toString(); }
+
+    // level: 0 low, 1 moderate, 2 high
+    function band(v, a, b) { return v < a ? 0 : (v <= b ? 1 : 2); }
+    var LABEL = ["Low risk", "Moderate", "High"];
+    var CLS = ["ok", "mid", "high"];
+
+    function evaluate() {
+      var irr = unit("irr");
+      var rows = [];
+      var ec = num("ec");
+      if (ec !== null && unit("ecu") === "us") ec = ec / 1000;
+      var tds = num("tds"), sar = num("sar"), ph = num("ph");
+      var cl = num("cl"); if (cl !== null && unit("clu") === "mg") cl = cl / 35.45;
+      var hc = num("hco3"); if (hc !== null && unit("hco3u") === "mg") hc = hc / 61.02;
+      var b = num("b"), fe = num("fe"), mn = num("mn"), h2s = num("h2s"), tss = num("tss");
+
+      if (ec !== null) {
+        var l = band(ec, 0.7, 3.0);
+        rows.push({ name: "Salinity (EC)", val: fmt(ec) + " dS/m", lvl: l,
+          text: ["Salt level is low. Most crops are fine.",
+                 "Salt can reduce yield in sensitive crops. Leaching and good drainage help; check your crop's tolerance.",
+                 "Salt this high hurts most crops. You likely need treatment, a blend with better water, or salt-tolerant crops."][l] });
+      }
+      if (tds !== null) {
+        var lt = band(tds, 450, 2000);
+        rows.push({ name: "Total dissolved solids", val: fmt(tds) + " mg/L", lvl: lt,
+          text: ["Dissolved salts are low.", "Moderate dissolved salts. Watch sensitive crops and scale in drip lines.", "High dissolved salts. Expect crop stress and scale; treatment may be needed."][lt] });
+      }
+      if (sar !== null && ec !== null) {
+        var t = sar < 3 ? [0.7, 0.2] : sar < 6 ? [1.2, 0.3] : sar < 12 ? [1.9, 0.5] : sar < 20 ? [2.9, 1.3] : [5.0, 2.9];
+        var li = ec > t[0] ? 0 : (ec >= t[1] ? 1 : 2);
+        rows.push({ name: "Water soaking into soil", val: "SAR " + fmt(sar) + " with EC " + fmt(ec), lvl: li,
+          text: ["Sodium is balanced. Water should soak in normally.",
+                 "Sodium may seal the soil surface so water soaks in slowly. Gypsum is a common fix.",
+                 "Sodium is likely to seal the soil. Water may pond or run off. Gypsum or treatment is usually needed."][li] });
+      }
+      if (sar !== null && irr === "surface") {
+        var ls = band(sar, 3, 9);
+        rows.push({ name: "Sodium toxicity", val: "SAR " + fmt(sar), lvl: ls,
+          text: ["Low sodium risk to plants.", "Sensitive crops like tree nuts and fruit may show leaf burn.", "High sodium. Sensitive crops are likely to be damaged."][ls] });
+      }
+      if (cl !== null) {
+        var lc = irr === "sprinkler" ? (cl < 3 ? 0 : 1) : band(cl, 4, 10);
+        rows.push({ name: "Chloride", val: fmt(cl) + " meq/L (" + fmt(cl * 35.45) + " mg/L)", lvl: lc,
+          text: irr === "sprinkler"
+            ? ["Low chloride.", "Chloride can burn leaves when sprinkled on them. Irrigating at night or under the canopy helps."][lc]
+            : ["Low chloride.", "Sensitive crops like pecans and fruit trees may show leaf burn.", "High chloride. Damage to sensitive crops is likely."][lc] });
+      }
+      if (hc !== null) {
+        var lh = band(hc, 1.5, 8.5);
+        var ht = irr === "sprinkler"
+          ? ["Low bicarbonate.", "May leave white deposits on leaves and fruit.", "Heavy white deposits on leaves and fruit are likely."][lh]
+          : ["Low bicarbonate.", "Bicarbonate with high pH can form scale in drip lines and raise soil pH. Acid injection is a common fix.", "High bicarbonate. Scale in drip lines and rising soil pH are likely without acid injection."][lh];
+        rows.push({ name: "Bicarbonate", val: fmt(hc) + " meq/L (" + fmt(hc * 61.02) + " mg/L)", lvl: lh, text: ht });
+      }
+      if (b !== null) {
+        var lb = band(b, 0.7, 3.0);
+        rows.push({ name: "Boron", val: fmt(b) + " mg/L", lvl: lb,
+          text: ["Low boron.", "Sensitive crops like pecans, beans and fruit may be affected.", "High boron. Only tolerant crops will do well."][lb] });
+      }
+      if (ph !== null) {
+        var lp = ph >= 6.5 && ph <= 8.4 ? (irr === "drip" && ph > 7.5 ? 1 : 0) : 2;
+        rows.push({ name: "pH", val: fmt(ph), lvl: lp,
+          text: lp === 0 ? "pH is in the normal range for irrigation water."
+            : lp === 1 ? "pH is normal for crops, but above 7.5 scale can build up in drip lines, especially with high bicarbonate."
+            : "pH is outside the normal range (6.5 to 8.4). It can affect nutrients and equipment; ask us about it." });
+      }
+      if (irr === "drip") {
+        if (fe !== null) { var lf = band(fe, 0.1, 1.5);
+          rows.push({ name: "Iron", val: fmt(fe) + " mg/L", lvl: lf,
+            text: ["Low clogging risk from iron.", "Iron can form orange slime and plug emitters. Usually treated with aeration or chlorination and filtration.", "High iron. Emitters will plug without treatment before filtration."][lf] }); }
+        if (mn !== null) { var lm = band(mn, 0.1, 1.5);
+          rows.push({ name: "Manganese", val: fmt(mn) + " mg/L", lvl: lm,
+            text: ["Low clogging risk from manganese.", "Manganese can form black deposits in lines. Treated much like iron.", "High manganese. Lines will plug without treatment."][lm] }); }
+        if (h2s !== null) { var lhs = band(h2s, 0.5, 2.0);
+          rows.push({ name: "Hydrogen sulfide", val: fmt(h2s) + " mg/L", lvl: lhs,
+            text: ["Low risk.", "Sulfur bacteria can form slime in lines. Chlorination usually controls it.", "High. Expect slime and plugging without treatment."][lhs] }); }
+        if (tss !== null) { var lss = band(tss, 50, 100);
+          rows.push({ name: "Suspended solids", val: fmt(tss) + " mg/L", lvl: lss,
+            text: ["Low sand and silt.", "Sand and silt can plug emitters. A sand separator or media filter usually solves it.", "High sand and silt. You need strong filtration, often a separator plus a media filter."][lss] }); }
+      } else if (fe !== null || mn !== null || h2s !== null || tss !== null) {
+        rows.push({ name: "Clogging", val: "", lvl: 0,
+          text: "Clogging limits matter most for drip and micro irrigation. With your system, high iron or sand can still wear pumps and nozzles; ask us if you see problems." });
+      }
+      return rows;
+    }
+
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var rows = evaluate();
+      if (!rows.length) {
+        out.innerHTML = '<div class="results-empty"><h2>Add at least one value</h2><p>Enter a number from your lab report, such as EC or iron, then press Explain my results.</p></div>';
+        return;
+      }
+      var high = rows.filter(function (r) { return r.lvl === 2; }).length;
+      var mid = rows.filter(function (r) { return r.lvl === 1; }).length;
+      var head = high ? high + (high > 1 ? " values need" : " value needs") + " attention"
+               : mid ? mid + (mid > 1 ? " values are" : " value is") + " worth watching"
+               : "No major problems found";
+      var html = '<div class="report"><div class="report-head"><span>' + head + '</span><span class="tag">Your results</span></div><div class="res-list">';
+      rows.sort(function (a, b) { return b.lvl - a.lvl; }).forEach(function (r) {
+        html += '<div class="res"><div class="res-top"><strong>' + esc(r.name) + '</strong><span class="flag ' + CLS[r.lvl] + '">' + LABEL[r.lvl] + '</span></div>' +
+                (r.val ? '<div class="res-val">' + esc(r.val) + '</div>' : '') + '<p>' + esc(r.text) + '</p></div>';
+      });
+      html += '</div></div><div class="next"><p>Want to know which fix makes sense for your farm, and whether USDA cost share could pay for it?</p><button class="btn" type="button" id="send">Send these results for a free diagnosis</button></div>';
+      out.innerHTML = html;
+
+      var summary = rows.map(function (r) { return "- " + r.name + (r.val ? ": " + r.val : "") + " (" + LABEL[r.lvl] + ")"; }).join("\n");
+      document.getElementById("send").addEventListener("click", function () {
+        try { sessionStorage.setItem("teraWaterResults", "Irrigation: " + unit("irr") + "\n" + summary); } catch (err) {}
+        location.href = "index.html#contact";
+      });
+      if (window.innerWidth < 900) out.scrollIntoView({ behavior: "smooth" });
+    });
+
+    form.addEventListener("reset", function () { out.innerHTML = emptyHTML; });
+  })();
+  </script>
+</body>
+</html>
